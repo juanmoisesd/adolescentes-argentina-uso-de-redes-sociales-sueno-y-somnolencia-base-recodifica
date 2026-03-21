@@ -1,0 +1,30 @@
+{
+  "related_identifiers": [
+    {
+      "identifier": "https://github.com/juanmoisesd/adolescentes-argentina-uso-de-redes-sociales-sueno-y-somnolencia-base-recodifica",
+      "relation": "isDocumentedBy",
+      "scheme": "url",
+      "resource_type": "dataset"
+    },
+    {
+      "identifier": "https://orcid.org/0000-0002-8401-8018",
+      "relation": "isCreatedBy",
+      "scheme": "url",
+      "resource_type": "person"
+    },
+    {
+      "identifier": "https://juanmoisesd.github.io/adolescentes-argentina-uso-de-redes-sociales-sueno-y-somnolencia-base-recodifica/",
+      "relation": "isDescribedBy",
+      "scheme": "url",
+      "resource_type": "webpage"
+    },
+    {
+      "identifier": "https://github.com/juanmoisesd",
+      "relation": "isPartOf",
+      "scheme": "url",
+      "resource_type": "collection"
+    }
+  ],
+  "author": "Juan Moisés de la Serna Tuya",
+  "dataset": "This dataset is a recoded version of the publicly available data from P&eacute;rez-Chada et al. (\"Screen use, sleep duration, daytime somnolence, and academic performance in school-aged adolescents\", Mendeley Data / PLOS ONE). It includes 1,257 adole"
+}
