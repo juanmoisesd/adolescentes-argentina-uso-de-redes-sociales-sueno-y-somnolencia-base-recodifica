@@ -1,4 +1,8 @@
 # adolescentes-argentina-uso-de-redes-sociales-sueno-y-somnolencia-base-recodifica
+
+[![Collection DOI](https://img.shields.io/badge/Collection_DOI-10.5281%2Fzenodo.19145316-blue?logo=zenodo)](https://doi.org/10.5281/zenodo.19145316) [![Author](https://img.shields.io/badge/ORCID-0000--0002--8401--8018-green?logo=orcid)](https://orcid.org/0000-0002-8401-8018)
+
+> Part of the **[Open Research Collection by Juan Moisés de la Serna Tuya](https://doi.org/10.5281/zenodo.19145316)** — 1,273+ datasets | DOI: 10.5281/zenodo.19145316
 This dataset is a recoded version of the publicly available data from P&amp;eacute;rez-Chada et al. ("Screen use, sleep duration, daytime somnolence, and academic performance in school-aged adolescents", Mendeley Data / PLOS ONE). It includes 1,257 adole
 
 ---
