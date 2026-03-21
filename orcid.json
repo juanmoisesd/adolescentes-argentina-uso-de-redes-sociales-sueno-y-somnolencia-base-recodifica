@@ -1,0 +1,16 @@
+{
+  "orcid": "0000-0002-8401-8018",
+  "name": "Juan Moisés de la Serna Tuya",
+  "affiliation": "Universidad Internacional de La Rioja (UNIR)",
+  "email": "juanmoises.delaserna@unir.net",
+  "website": "https://juanmoisesdelaserna.es",
+  "profile": "https://orcid.org/0000-0002-8401-8018",
+  "works": [
+    {
+      "title": "This dataset is a recoded version of the publicly available data from P&eacute;rez-Chada et al. (\"Screen use, sleep duration, daytime somnolence, and academic performance in school-aged adolescents\", Mendeley Data / PLOS ONE). It includes 1,257 adole",
+      "type": "dataset",
+      "url": "https://github.com/juanmoisesd/adolescentes-argentina-uso-de-redes-sociales-sueno-y-somnolencia-base-recodifica",
+      "year": "2026"
+    }
+  ]
+}
