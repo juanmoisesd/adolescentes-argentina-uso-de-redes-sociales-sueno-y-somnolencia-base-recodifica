@@ -1,7 +1,8 @@
 cff-version: 1.2.0
-message: "If you use this software/dataset, please cite it as below."
+message: "If you use this dataset, please cite it as below."
 type: dataset
-title: "This dataset is a recoded version of the publicly available data from P&eacute;rez-Chada et al. ("Screen use, sleep duration, daytime somnolence, and academic performance in school-aged adolescents", Mendeley Data / PLOS ONE). It includes 1,257 adole"
+title: "This dataset is a recoded version of the publicly available data from P&eacute;rez-Chada et al. ("
+abstract: "This dataset is a recoded version of the publicly available data from P&eacute;rez-Chada et al. ("
 authors:
   - family-names: "de la Serna Tuya"
     given-names: "Juan Moisés"
@@ -10,7 +11,6 @@ authors:
     email: "juanmoises.delaserna@unir.net"
 repository-code: "https://github.com/juanmoisesd/adolescentes-argentina-uso-de-redes-sociales-sueno-y-somnolencia-base-recodifica"
 url: "https://juanmoisesd.github.io/adolescentes-argentina-uso-de-redes-sociales-sueno-y-somnolencia-base-recodifica/"
-abstract: "This dataset is a recoded version of the publicly available data from P&eacute;rez-Chada et al. ("Screen use, sleep duration, daytime somnolence, and academic performance in school-aged adolescents", Mendeley Data / PLOS ONE). It includes 1,257 adole"
 keywords:
   - open-data
   - dataset
@@ -19,6 +19,7 @@ keywords:
 license: CC0-1.0
 version: "1.0.0"
 date-released: "2026-03-20"
+doi: "10.5281/zenodo.19145316"
 references:
   - type: dataset
     title: "Open Research Collection — Juan Moisés de la Serna Tuya"
