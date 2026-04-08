@@ -1,0 +1,9 @@
+variable,value,label
+gender,1,Male
+gender,2,Female
+gender,3,Non-binary
+sleep_quality,1,Very Poor
+sleep_quality,2,Poor
+sleep_quality,3,Fair
+sleep_quality,4,Good
+sleep_quality,5,Very Good

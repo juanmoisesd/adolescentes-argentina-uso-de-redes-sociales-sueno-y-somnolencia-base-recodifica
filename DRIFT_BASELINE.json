@@ -1,0 +1,12 @@
+{
+  "dataset_name": "adolescentes-argentina-uso-de-redes-sociales-sueno-y-somnolencia-base-recodifica",
+  "baseline_date": "2026-03-20",
+  "metrics": {
+    "mean_sleep_duration": 7.5,
+    "std_sleep_duration": 1.2,
+    "screen_use_hours_mean": 4.2
+  },
+  "thresholds": {
+    "drift_threshold": 0.05
+  }
+}

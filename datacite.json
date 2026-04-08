@@ -1,0 +1,40 @@
+{
+  "identifiers": [
+    {
+      "identifier": "10.5281/zenodo.19145316",
+      "identifierType": "DOI"
+    }
+  ],
+  "creators": [
+    {
+      "name": "de la Serna Tuya, Juan Moisés",
+      "nameType": "Personal",
+      "givenName": "Juan Moisés",
+      "familyName": "de la Serna Tuya",
+      "nameIdentifiers": [
+        {
+          "nameIdentifier": "https://orcid.org/0000-0002-8401-8018",
+          "nameIdentifierScheme": "ORCID"
+        }
+      ],
+      "affiliation": [
+        {
+          "name": "Universidad Internacional de La Rioja (UNIR)"
+        }
+      ]
+    }
+  ],
+  "titles": [
+    {
+      "title": "Adolescentes Argentina Uso De Redes Sociales Sueno Y Somnolencia Base Recodifica"
+    }
+  ],
+  "publisher": "GitHub",
+  "publicationYear": "2026",
+  "types": {
+    "resourceType": "Dataset",
+    "resourceTypeGeneral": "Dataset"
+  },
+  "schemaVersion": "http://datacite.org/schema/kernel-4",
+  "state": "findable"
+}

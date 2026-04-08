@@ -1,0 +1,18 @@
+[
+  {
+    "type": "dataset",
+    "title": "Adolescentes Argentina Uso De Redes Sociales Sueno Y Somnolencia Base Recodifica",
+    "author": [
+      {
+        "family": "de la Serna Tuya",
+        "given": "Juan Moisés"
+      }
+    ],
+    "issued": {
+      "date-parts": [[2026, 3, 20]]
+    },
+    "publisher": "GitHub",
+    "URL": "https://github.com/juanmoisesd/adolescentes-argentina-uso-de-redes-sociales-sueno-y-somnolencia-base-recodifica",
+    "DOI": "10.5281/zenodo.19145316"
+  }
+]

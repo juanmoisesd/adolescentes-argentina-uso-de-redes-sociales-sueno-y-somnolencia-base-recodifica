@@ -1,0 +1,7 @@
+@prefix prov: <http://www.w3.org/ns/prov#> .
+@prefix dc: <http://purl.org/dc/terms/> .
+
+<https://github.com/juanmoisesd/adolescentes-argentina-uso-de-redes-sociales-sueno-y-somnolencia-base-recodifica>
+    a prov:Entity ;
+    prov:wasDerivedFrom <https://doi.org/10.17632/v6m6j8z9y2.1> ;
+    prov:wasAttributedTo <https://orcid.org/0000-0002-8401-8018> .

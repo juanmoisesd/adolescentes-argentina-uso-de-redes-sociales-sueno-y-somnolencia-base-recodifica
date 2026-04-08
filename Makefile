@@ -16,7 +16,13 @@ validate:
 	@python -c "import json; json.load(open('datapackage.json'))" && echo "✅ datapackage.json valid"
 	@python -c "import json; json.load(open('codemeta.json'))" && echo "✅ codemeta.json valid"
 	@python -c "import json; json.load(open('.zenodo.json'))" && echo "✅ .zenodo.json valid"
+	@python -c "import json; json.load(open('schema.json'))" && echo "✅ schema.json valid"
 	@echo "✅ Validation complete"
+
+## Run tests
+test:
+	@echo "Running tests..."
+	@pytest tests/
 
 ## Show citation
 cite:
@@ -25,7 +31,7 @@ cite:
 
 ## Check all required files exist
 check:
-	@for f in README.md LICENSE CITATION.cff codemeta.json AUTHORS.md .zenodo.json; do \
+	@for f in README.md LICENSE CITATION.cff codemeta.json AUTHORS.md .zenodo.json schema.json datapackage.json; do \
 	  [ -f "$$f" ] && echo "✅ $$f" || echo "❌ $$f missing"; \
 	done
 

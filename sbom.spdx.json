@@ -1,0 +1,13 @@
+{
+  "spdxVersion": "SPDX-2.3",
+  "dataLicense": "CC0-1.0",
+  "name": "adolescentes-argentina-uso-de-redes-sociales-sueno-y-somnolencia-base-recodifica",
+  "documentNamespace": "https://github.com/juanmoisesd/adolescentes-argentina-uso-de-redes-sociales-sueno-y-somnolencia-base-recodifica/sbom",
+  "packages": [
+    {
+      "name": "pandas",
+      "versionInfo": "1.5.0",
+      "licenseDeclared": "BSD-3-Clause"
+    }
+  ]
+}
