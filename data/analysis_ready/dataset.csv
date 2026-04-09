@@ -1,11 +1,6 @@
-id,country,year,value,unit,source,notes,variable,gender,sleep_duration,screen_use,academic_performance,sleep_quality
-1,Argentina,2023,7.5,hours,Mendeley,Standard record,sleep_duration,1,7.5,4.2,8.0,4
-2,Argentina,2023,6.2,hours,Mendeley,Standard record,sleep_duration,2,6.2,5.5,6.5,2
-3,Argentina,2023,8.0,hours,Mendeley,Standard record,sleep_duration,1,8.0,3.0,9.0,5
-4,Argentina,2023,5.5,hours,Mendeley,Standard record,sleep_duration,2,5.5,7.0,5.0,1
-5,Argentina,2023,7.2,hours,Mendeley,Standard record,sleep_duration,1,7.2,4.0,7.5,4
-6,Argentina,2023,6.8,hours,Mendeley,Standard record,sleep_duration,2,6.8,4.8,7.0,3
-7,Argentina,2023,8.5,hours,Mendeley,Standard record,sleep_duration,1,8.5,2.5,9.5,5
-8,Argentina,2023,5.0,hours,Mendeley,Standard record,sleep_duration,2,5.0,8.0,4.5,1
-9,Argentina,2023,7.8,hours,Mendeley,Standard record,sleep_duration,1,7.8,3.5,8.5,4
-10,Argentina,2023,6.5,hours,Mendeley,Standard record,sleep_duration,2,6.5,6.0,6.0,2
+id,country,year,screen_use,sleep_duration,academic_performance,sleep_quality,unit,source,notes,value
+1,Argentina,2023,4.2,7.5,8.0,4,hours,Mendeley Data,Processed from raw,7.5
+2,Argentina,2023,5.5,6.2,6.5,2,hours,Mendeley Data,Processed from raw,6.2
+3,Argentina,2023,3.0,8.0,9.0,5,hours,Mendeley Data,Processed from raw,8.0
+4,Argentina,2023,7.0,5.5,5.0,1,hours,Mendeley Data,Processed from raw,5.5
+5,Argentina,2023,4.0,7.2,7.5,4,hours,Mendeley Data,Processed from raw,7.2
