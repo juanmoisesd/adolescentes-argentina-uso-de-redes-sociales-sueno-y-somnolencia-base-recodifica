@@ -319,7 +319,7 @@ def generate_config(checks, plan):
         },
         "next_steps": [
             "1. Review config.json",
-            "2. If status=ready, run: python3 pipeline_phase1.py",
+            "2. If status=ready, run: python3 phase_1_download.py",
             "3. Check /logs/execution.log for progress"
         ]
     }

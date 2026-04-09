@@ -54,3 +54,14 @@ _build/
 !schema.json
 !related_identifiers.json
 !PROV.json
+
+# Pipeline transient data
+raw_data/
+processed_data/
+datasets/
+papers/
+outputs/
+logs/
+metadata_cache/
+meta_papers/
+registry/
