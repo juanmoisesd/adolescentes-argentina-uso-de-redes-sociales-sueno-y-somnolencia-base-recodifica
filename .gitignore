@@ -41,3 +41,6 @@ logs/
 # Build output
 _site/
 _build/
+
+# Snakemake
+.snakemake/

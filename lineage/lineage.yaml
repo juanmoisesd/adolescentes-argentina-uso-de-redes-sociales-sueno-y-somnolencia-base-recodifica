@@ -1,0 +1,9 @@
+sources:
+  - id: perez_chada_2023
+    type: external
+    url: https://doi.org/10.17632/v6m6j8z9y2.1
+transformations:
+  - id: recoding_process
+    script: scripts/etl/process.py
+    input: data/raw/original.csv
+    output: data/analysis_ready/dataset.csv

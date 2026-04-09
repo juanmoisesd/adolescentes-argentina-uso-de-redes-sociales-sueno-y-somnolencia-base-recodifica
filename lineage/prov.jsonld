@@ -1,0 +1,11 @@
+{
+  "@context": "http://www.w3.org/ns/prov#",
+  "@id": "https://github.com/juanmoisesd/adolescentes-argentina-uso-de-redes-sociales-sueno-y-somnolencia-base-recodifica",
+  "wasDerivedFrom": {
+    "@id": "https://doi.org/10.17632/v6m6j8z9y2.1"
+  },
+  "wasGeneratedBy": {
+    "@type": "Activity",
+    "label": "Data Recoding"
+  }
+}

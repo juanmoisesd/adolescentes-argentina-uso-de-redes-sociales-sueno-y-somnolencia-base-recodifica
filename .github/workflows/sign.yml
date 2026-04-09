@@ -1,0 +1,16 @@
+name: Sign Artifacts
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  sign:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Sign with Cosign
+      uses: sigstore/cosign-installer@main
+    - name: Sign datapackage.json
+      run: |
+        cosign sign-blob --yes datapackage.json

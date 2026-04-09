@@ -1,0 +1,19 @@
+rule all:
+    input:
+        "data/analysis_ready/dataset.csv"
+
+rule clean_data:
+    input:
+        "data/raw/original.csv"
+    output:
+        "data/clean/cleaned.csv"
+    shell:
+        "python3 scripts/etl/clean.py"
+
+rule process_data:
+    input:
+        "data/clean/cleaned.csv"
+    output:
+        "data/analysis_ready/dataset.csv"
+    shell:
+        "python3 scripts/etl/process.py"

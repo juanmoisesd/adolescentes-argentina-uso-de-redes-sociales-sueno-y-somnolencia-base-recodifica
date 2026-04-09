@@ -1,0 +1,6 @@
+# Merkle Tree Manifest (Placeholder)
+
+root: 4a3b2c1d...
+|-- data/ (hash: ...)
+|-- src/ (hash: ...)
+|-- docs/ (hash: ...)

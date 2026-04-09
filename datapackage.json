@@ -29,5 +29,13 @@
       "path": "https://github.com/juanmoisesd/adolescentes-argentina-uso-de-redes-sociales-sueno-y-somnolencia-base-recodifica"
     }
   ],
-  "created": "2026-03-20"
+  "created": "2026-03-20",
+  "resources": [
+    {
+      "name": "adolescents_data",
+      "path": "data/analysis_ready/dataset.csv",
+      "format": "csv",
+      "schema": "schema.json"
+    }
+  ]
 }

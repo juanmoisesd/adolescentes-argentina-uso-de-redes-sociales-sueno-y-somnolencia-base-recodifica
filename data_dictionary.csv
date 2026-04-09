@@ -1,0 +1,8 @@
+variable,type,description,required
+id,string,Unique row identifier,true
+country,string,Country or region name,true
+year,integer,Reference year,true
+value,number,Primary metric value,true
+unit,string,Unit of measurement,false
+source,string,Original data source,false
+notes,string,Additional notes,false

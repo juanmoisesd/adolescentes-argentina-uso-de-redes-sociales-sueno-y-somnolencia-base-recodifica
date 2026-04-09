@@ -1,0 +1,3 @@
+# Resumen (Abstract)
+
+Este conjunto de datos presenta una versión recodificada y procesada de la investigación original de Pérez-Chada et al. sobre el uso de pantallas, la duración del sueño, la somnolencia diurna y el rendimiento académico en adolescentes argentinos. El estudio original abarcó a 1.257 adolescentes en edad escolar. Esta base recodificada facilita análisis posteriores al estandarizar variables y limpiar registros para su uso inmediato en herramientas de ciencia de datos. Los resultados subrayan la interconexión entre los hábitos digitales y el bienestar fisiológico en la población juvenil.
