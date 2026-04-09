@@ -1,0 +1,74 @@
+{
+  "status": "READY",
+  "checks": {
+    "case_law": true,
+    "zenodo": false,
+    "disk_free_gb": 92.79416275024414,
+    "permissions": true
+  },
+  "analysis": {
+    "volumes_available": 40622,
+    "jurisdictions_count": 61,
+    "total_size_estimated_tb": 2.3,
+    "recommendation": "download top 10 jurisdictions (~150GB)",
+    "top_10_jurisdictions": [
+      [
+        "U.S.",
+        7832
+      ],
+      [
+        "N.Y.",
+        2518
+      ],
+      [
+        "Ark.",
+        2058
+      ],
+      [
+        "Ala.",
+        1708
+      ],
+      [
+        "Pa.",
+        1707
+      ],
+      [
+        "Ill.",
+        1574
+      ],
+      [
+        "D.C.",
+        1544
+      ],
+      [
+        "Cal.",
+        1392
+      ],
+      [
+        "Ohio",
+        1284
+      ],
+      [
+        "Ind.",
+        1213
+      ]
+    ],
+    "estimated_time_h": 48,
+    "estimated_dois": "300-400"
+  },
+  "plan": {
+    "target_jurisdictions": [
+      "U.S.",
+      "N.Y.",
+      "Ark.",
+      "Ala.",
+      "Pa.",
+      "Ill.",
+      "D.C.",
+      "Cal.",
+      "Ohio",
+      "Ind."
+    ],
+    "action": "download_top_jurisdictions"
+  }
+}
