@@ -33,7 +33,7 @@ def download_volume(url, dest_path):
         except Exception as e:
             logger.error(f"❌ Attempt {attempt+1}: Error downloading {url}: {e}")
 
-        time.sleep(2 ** attempt) # Exponential backoff
+        time.sleep(2 ** attempt)
 
     return False
 
@@ -41,13 +41,14 @@ def main():
     logger.info("--- PHASE 1: DOWNLOAD STARTED ---")
     config = get_config()
     if not config:
-        logger.error("config.json not found. Run init_pipeline.py first.")
+        logger.error("config.json not found.")
         return
 
-    # Extract target jurisdictions from recommendations
-    plan = config.get("plan", {})
-    recommendations = plan.get("recommendations", {})
-    target_jurs = recommendations.get("start_with", {}).get("jurisdictions", [])
+    target_jurs = config.get("target_jurisdictions", [])
+    if not target_jurs:
+        # Compatibility with older structure
+        recommendations = config.get("plan", {}).get("recommendations", {})
+        target_jurs = recommendations.get("start_with", {}).get("jurisdictions", [])
 
     if not target_jurs:
         logger.error("No target jurisdictions found in plan.")
@@ -55,52 +56,23 @@ def main():
 
     logger.info(f"Targeting jurisdictions: {target_jurs}")
 
-    metadata_path = Path("metadata_cache/VolumesMetadata.json")
-    if not metadata_path.exists():
-        logger.error("VolumesMetadata.json not found in metadata_cache/")
-        return
-
-    with open(metadata_path, "r") as f:
+    with open("metadata_cache/VolumesMetadata.json", "r") as f:
         volumes = json.load(f)
 
-    # Standardize jurisdiction names for matching
-    # Map friendly names from plan to metadata names
-    # Note: Real CAP metadata uses names like "United States", "New York", "California"
-    jur_map = {
-        "federal": ["U.S.", "United States", "U. S."],
-        "new_york": ["N.Y.", "New York"],
-        "california": ["Cal.", "California"],
-        "texas": ["Tex.", "Texas"],
-        "florida": ["Fla.", "Florida"]
-    }
-
-    accepted_names = []
-    for tj in target_jurs:
-        accepted_names.extend(jur_map.get(tj.lower(), [tj]))
-
     download_count = 0
-    # In production, we'd remove the limit or use a large one
-    max_volumes_per_poc = 10
+    max_volumes_per_poc = 5
 
     for vol in volumes:
         if download_count >= max_volumes_per_poc:
             break
 
         vol_jurs = [j.get("name") for j in vol.get("jurisdictions", [])]
-        if any(j in accepted_names for j in vol_jurs):
-            reporter_slug = vol.get("reporter_slug")
-            vol_num = vol.get("volume_number")
-
-            if not reporter_slug or not vol_num:
-                continue
-
-            url = f"https://static.case.law/{reporter_slug}/{vol_num}.zip"
-
-            # Safe directory name
+        if any(j in target_jurs for j in vol_jurs):
+            url = f"https://static.case.law/{vol.get('reporter_slug')}/{vol.get('volume_number')}.zip"
             safe_jur = vol_jurs[0].replace(".", "").replace(" ", "_").lower()
             jur_dir = Path("raw_data") / safe_jur
             jur_dir.mkdir(parents=True, exist_ok=True)
-            dest = jur_dir / f"{vol_num}.zip"
+            dest = jur_dir / f"{vol.get('volume_number')}.zip"
 
             if download_volume(url, dest):
                 download_count += 1
