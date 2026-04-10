@@ -22,12 +22,14 @@ def download_volume(url, dest_path):
                 with open(dest_path, 'wb') as f:
                     for chunk in r.iter_content(chunk_size=131072):
                         f.write(chunk)
-                logger.info(f"✅ Downloaded {dest_path.name}")
+                logger.info(f"✅ Successfully downloaded {dest_path.name}")
                 return True
             elif r.status_code == 404:
+                logger.error(f"❌ 404 Not Found: {url}")
                 return False
-        except:
-            pass
+        except Exception as e:
+            logger.warning(f"⚠️ Attempt {attempt+1} failed for {url}: {e}")
+
         time.sleep(2 ** attempt)
     return False
 
@@ -35,14 +37,20 @@ def main():
     logger.info("--- PHASE 1: DOWNLOAD STARTED ---")
     config = get_config()
     target_jurs = config.get("target_jurisdictions", [])
+    mode = config.get("mode", "partial")
 
-    # Handle 'all' or large sets efficiently
-    is_full = config.get("mode") == "full"
+    # Respect user's executive order parameters
     max_per_jur = int(os.getenv("MAX_VOLUMES_PER_JURISDICTION", 999999))
+    checkpoint_interval = int(os.getenv("CHECKPOINT_INTERVAL", 50))
 
-    logger.info(f"Targeting {len(target_jurs)} jurisdictions. Max {max_per_jur} per jur.")
+    logger.info(f"Targeting {len(target_jurs)} jurisdictions. Mode: {mode}")
 
-    with open("metadata_cache/VolumesMetadata.json", "r") as f:
+    metadata_path = Path("metadata_cache/VolumesMetadata.json")
+    if not metadata_path.exists():
+        logger.error("Metadata not found. Run init_pipeline.py first.")
+        return
+
+    with open(metadata_path, "r") as f:
         volumes = json.load(f)
 
     jur_counts = {j: 0 for j in target_jurs}
@@ -51,7 +59,7 @@ def main():
     for vol in volumes:
         vol_jurs = [j.get("name") for j in vol.get("jurisdictions", [])]
         for vj in vol_jurs:
-            if vj in jur_counts and jur_counts[vj] < max_per_jur:
+            if vj in jur_counts and (mode == "full" or jur_counts[vj] < max_per_jur):
                 reporter_slug = vol.get('reporter_slug')
                 vol_num = vol.get('volume_number')
                 url = f"https://static.case.law/{reporter_slug}/{vol_num}.zip"
@@ -64,13 +72,15 @@ def main():
                 if download_volume(url, dest):
                     jur_counts[vj] += 1
                     total_downloaded += 1
+
+                    if total_downloaded % checkpoint_interval == 0:
+                        logger.info(f"📊 Checkpoint reached: {total_downloaded} volumes downloaded.")
                 break
 
-        # Check if we should stop early for non-full mode
-        if not is_full and all(count >= max_per_jur for count in jur_counts.values()):
+        if mode != "full" and all(count >= max_per_jur for count in jur_counts.values()):
             break
 
-    logger.info(f"--- PHASE 1 COMPLETE ({total_downloaded} volumes) ---")
+    logger.info(f"--- PHASE 1 COMPLETE ({total_downloaded} total volumes) ---")
 
 if __name__ == "__main__":
     main()

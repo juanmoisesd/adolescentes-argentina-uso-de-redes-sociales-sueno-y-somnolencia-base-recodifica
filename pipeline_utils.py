@@ -3,6 +3,10 @@ import logging
 import json
 from datetime import datetime
 from pathlib import Path
+from dotenv import load_dotenv
+
+# Load environment variables from .env
+load_dotenv()
 
 def setup_logger(name, log_file="logs/execution.log"):
     os.makedirs(os.path.dirname(log_file), exist_ok=True)

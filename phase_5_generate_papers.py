@@ -3,6 +3,7 @@ import logging
 import pandas as pd
 from pathlib import Path
 from jinja2 import Template
+from fpdf import FPDF
 from pipeline_utils import setup_logger
 
 logger = setup_logger("phase_5")
@@ -10,47 +11,51 @@ logger = setup_logger("phase_5")
 PAPER_TEMPLATE = """
 # Large-Scale {{ method }} Analysis of {{ domain }}
 
-**Author:** Juan Moisés de la Serna
-**ORCID:** 0000-0002-8401-8018
-**Date:** {{ date }}
+Author: Juan Moises de la Serna
+ORCID: 0000-0002-8401-8018
+Date: {{ date }}
 
-## Abstract
+Abstract
 This paper explores {{ focus }} within {{ domain }} through {{ method }} analysis of {{ case_count }} cases.
 Our findings suggest {{ findings }}.
 We observe a mean value of {{ mean_val }} for the primary metric.
 
-## Introduction
+Introduction
 This study presents a large-scale computational analysis of legal cases using the Caselaw Access Project data.
 We focus on {{ focus }} to uncover patterns in judicial decision-making across {{ jurisdiction_count }} jurisdictions.
 
-## Methods
+Methods
 We processed {{ case_count }} legal cases.
 The analysis utilized {{ methods_desc }}.
 Data was extracted from volumes in the {{ jurisdictions }} jurisdictions.
 
-## Results
+Results
 The analysis reveals significant patterns in {{ result_summary }}.
 Key statistics for the dataset:
 - Total Observations: {{ case_count }}
 - Average {{ metric_name }}: {{ mean_val }}
 - Maximum {{ metric_name }}: {{ max_val }}
 
-## Discussion
+Discussion
 These findings contribute to the growing field of Legal Analytics by providing empirical evidence of {{ implication }}.
 
-## Limitations
+Limitations
 The study is limited by the scope of available digital records and the automated nature of feature extraction.
 
-## Keywords
+Keywords
 {{ keywords }}
 """
 
 def generate_paper(dataset_path, output_dir):
-    df = pd.read_csv(dataset_path)
+    try:
+        df = pd.read_csv(dataset_path)
+    except Exception as e:
+        logger.error(f"Could not read {dataset_path}: {e}")
+        return
+
     name = dataset_path.stem.replace("dataset_", "").replace("_v1", "")
     logger.info(f"Generating paper for {name}...")
 
-    # Map dataset names to paper contexts
     content_map = {
         "textual_complexity": {
             "method": "Textual Complexity", "domain": "Legal Prose", "focus": "linguistic density and readability",
@@ -81,7 +86,6 @@ def generate_paper(dataset_path, output_dir):
     ctx = content_map.get(name)
     if not ctx: return
 
-    # Calculate real stats from dataset
     ctx["case_count"] = f"{len(df):,}"
     ctx["mean_val"] = f"{df[ctx['metric']].mean():.2f}"
     ctx["max_val"] = f"{df[ctx['metric']].max():.2f}"
@@ -96,12 +100,18 @@ def generate_paper(dataset_path, output_dir):
     with open(md_path, "w") as f:
         f.write(md_content)
 
-    # Simulate PDF
-    pdf_path = output_dir / f"{name}.pdf"
-    with open(pdf_path, "w") as f:
-        f.write("% PDF SIMULATION\n" + md_content)
-
-    logger.info(f"✅ Generated paper files for {name}")
+    # Real PDF Generation
+    try:
+        pdf = FPDF()
+        pdf.add_page()
+        pdf.set_font("Helvetica", size=12)
+        clean_text = md_content.replace("#", "").replace("**", "")
+        pdf.multi_cell(0, 10, clean_text)
+        pdf_path = output_dir / f"{name}.pdf"
+        pdf.output(str(pdf_path))
+        logger.info(f"✅ Generated Markdown and PDF for {name}")
+    except Exception as e:
+        logger.error(f"Failed to generate PDF for {name}: {e}")
 
 def main():
     logger.info("--- PHASE 5: PAPER GENERATION STARTED ---")
