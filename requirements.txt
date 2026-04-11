@@ -1,19 +1,7 @@
-# Requirements for This dataset is a recoded version of the publicly available data from P&eacute;rez-Chada et al. ("Screen use, sleep duration, daytime somnolence, and academic performance in school-aged adolescents", Mendeley Data / PLOS ONE). It includes 1,257 adole
-# Author: Juan Moisés de la Serna Tuya
-# ORCID: https://orcid.org/0000-0002-8401-8018
-
-# Data analysis
-pandas>=1.5.0
-numpy>=1.21.0
-
-# Data visualization (optional)
-matplotlib>=3.5.0
-
-# JSON/YAML processing
-pyyaml>=6.0
-
-# HTTP requests
+pandas>=2.0.0
+numpy>=1.24.0
 requests>=2.28.0
-
-# Validation
-jsonschema>=4.0.0
+pyarrow>=12.0.0
+jinja2>=3.1.0
+fpdf2>=2.7.0
+python-dotenv>=1.0.0

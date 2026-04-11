@@ -41,3 +41,27 @@ logs/
 # Build output
 _site/
 _build/
+*.json
+!config.json
+!datapackage.json
+!codemeta.json
+!author_profile.json
+!funding.json
+!manifest.json
+!zenodo.json
+!.zenodo.json
+!dataset_description.json
+!schema.json
+!related_identifiers.json
+!PROV.json
+
+# Pipeline transient data
+raw_data/
+processed_data/
+datasets/
+papers/
+outputs/
+logs/
+metadata_cache/
+meta_papers/
+registry/
