@@ -36,6 +36,23 @@ logger = setup_logger()
 def check_resources():
     logger.info("Verifying system resources...")
 
+    # Zenodo token validation
+    token = os.getenv("ZENODO_TOKEN")
+    env = os.getenv("ZENODO_ENVIRONMENT", "sandbox").lower()
+    base_url = "https://sandbox.zenodo.org/api" if env == "sandbox" else "https://zenodo.org/api"
+
+    if token and token != "your_real_token_here":
+        try:
+            r = requests.get(f"{base_url}/deposit/depositions", params={'access_token': token})
+            if r.status_code == 200:
+                logger.info(f"✅ Zenodo {env} token is VALID.")
+            else:
+                logger.warning(f"⚠️ Zenodo {env} token failed validation (Status {r.status_code}). Pipeline will run in SIMULATION mode.")
+        except Exception as e:
+            logger.warning(f"⚠️ Error checking Zenodo token: {e}. Simulation mode expected.")
+    else:
+        logger.info("ℹ️ No Zenodo token provided. Pipeline will use simulation mode for DOIs.")
+
     # Disk check
     _, _, free = shutil.disk_usage(".")
     free_gb = free / (2**30)
